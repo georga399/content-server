@@ -1,0 +1,14 @@
+version: '3.8'  
+
+services:
+  upload-service:
+    build:
+      context: . 
+      dockerfile: Dockerfile  
+    ports:
+      - "443:443"  
+      - "80:80"
+    volumes:
+      - /uploads:/uploads  
+      - /home/production/ssl_certs:/etc/ssl_certs
+    restart: unless-stopped  
